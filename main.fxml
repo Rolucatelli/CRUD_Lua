@@ -1,0 +1,426 @@
+local fusio = require("fusio")
+
+fusio.start({
+    root = {
+        type = "AnchorPane",
+        properties = {
+            maxHeight = "-Infinity",
+            maxWidth = "-Infinity",
+            minHeight = "-Infinity",
+            minWidth = "-Infinity",
+            prefHeight = 720.0,
+            prefWidth = 1280.0,
+            style = "-fx-background-color: #e5f3ff;",
+        },
+        children = {
+            {
+                type = "TableView",
+                id = "table",
+                properties = {
+                    fixedCellSize = 49.0,
+                    focusTraversable = false,
+                    layoutX = 335.0,
+                    layoutY = 104.0,
+                    prefHeight = 516.0,
+                    prefWidth = 910.0,
+                },
+                children = {
+                    {
+                        type = "TableColumn",
+                        id = "idCol",
+                        properties = {
+                            editable = false,
+                            prefWidth = 40.0,
+                            style = "-fx-color: #00bbdd; -fx-alignment: center;",
+                            text = "Id",
+                        }
+                    },
+                    {
+                        type = "TableColumn",
+                        id = "nameCol",
+                        properties = {
+                            editable = false,
+                            prefWidth = 125.0,
+                            style = "-fx-color: #0099dd; -fx-alignment: center;",
+                            text = "Name",
+                        }
+                    },
+                    {
+                        type = "TableColumn",
+                        id = "shortDescriptionCol",
+                        properties = {
+                            editable = false,
+                            prefWidth = 300.0,
+                            style = "-fx-color: #00bbdd; -fx-alignment: center;",
+                            text = "Short description",
+                        }
+                    },
+                    {
+                        type = "TableColumn",
+                        id = "brandCol",
+                        properties = {
+                            editable = false,
+                            prefWidth = 150.0,
+                            style = "-fx-color: #0099dd; -fx-alignment: center;",
+                            text = "Brand",
+                        }
+                    },
+                    {
+                        type = "TableColumn",
+                        id = "categoryCol",
+                        properties = {
+                            editable = false,
+                            prefWidth = 125.0,
+                            style = "-fx-color: #00bbdd; -fx-alignment: center;",
+                            text = "Category",
+                        }
+                    },
+                    {
+                        type = "TableColumn",
+                        id = "listPriceCol",
+                        properties = {
+                            editable = false,
+                            prefWidth = 85.0,
+                            style = "-fx-color: #0099dd; -fx-alignment: center;",
+                            text = "List price",
+                        }
+                    },
+                    {
+                        type = "TableColumn",
+                        id = "costCol",
+                        properties = {
+                            editable = false,
+                            prefWidth = 84.0,
+                            style = "-fx-color: #00bbdd; -fx-alignment: center;",
+                            text = "Cost (US$)",
+                        }
+                    }
+                }
+            },
+            {
+                type = "TextField",
+                id = "prodName",
+                properties = {
+                    layoutX = 145.0,
+                    layoutY = 227.0,
+                }
+            },
+            {
+                type = "TextField",
+                id = "shortDescription",
+                properties = {
+                    layoutX = 145.0,
+                    layoutY = 273.0,
+                }
+            },
+            {
+                type = "TextField",
+                id = "brand",
+                properties = {
+                    layoutX = 145.0,
+                    layoutY = 323.0,
+                }
+            },
+            {
+                type = "TextField",
+                id = "category",
+                properties = {
+                    layoutX = 145.0,
+                    layoutY = 373.0,
+                }
+            },
+            {
+                type = "TextField",
+                id = "listPrice",
+                properties = {
+                    layoutX = 145.0,
+                    layoutY = 423.0,
+                }
+            },
+            {
+                type = "TextField",
+                id = "cost",
+                properties = {
+                    layoutX = 145.0,
+                    layoutY = 473.0,
+                }
+            },
+            {
+                type = "Label",
+                properties = {
+                    layoutX = 45.0,
+                    layoutY = 227.0,
+                    text = "Product name",
+                }
+            },
+            {
+                type = "Label",
+                properties = {
+                    layoutX = 45.0,
+                    layoutY = 277.0,
+                    text = "Short description",
+                }
+            },
+            {
+                type = "Label",
+                properties = {
+                    layoutX = 74.0,
+                    layoutY = 327.0,
+                    text = "Brand",
+                }
+            },
+            {
+                type = "Label",
+                properties = {
+                    layoutX = 66.0,
+                    layoutY = 377.0,
+                    text = "Category",
+                }
+            },
+            {
+                type = "Label",
+                properties = {
+                    layoutX = 67.0,
+                    layoutY = 427.0,
+                    text = "List price",
+                }
+            },
+            {
+                type = "Label",
+                properties = {
+                    layoutX = 78.0,
+                    layoutY = 477.0,
+                    text = "Cost",
+                }
+            },
+            {
+                type = "Button",
+                properties = {
+                    contentDisplay = "CENTER",
+                    layoutX = 150.0,
+                    layoutY = 570.0,
+                    mnemonicParsing = false,
+                    onAction = "#delete",
+                    style = "-fx-background-color: #00aaff;",
+                    text = "Delete",
+                    textFill = "#fafafa",
+                },
+                children = {
+                    {
+                        type = "Cursor",
+                        properties = {
+                            fx = { constant = "HAND" }
+                        }
+                    }
+                }
+            },
+            {
+                type = "Button",
+                properties = {
+                    contentDisplay = "CENTER",
+                    layoutX = 85.0,
+                    layoutY = 570.0,
+                    mnemonicParsing = false,
+                    onAction = "#update",
+                    style = "-fx-background-color: #00aaff;",
+                    text = "Update",
+                    textFill = "#fafafa",
+                },
+                children = {
+                    {
+                        type = "Cursor",
+                        properties = {
+                            fx = { constant = "HAND" }
+                        }
+                    }
+                }
+            },
+            {
+                type = "Button",
+                properties = {
+                    contentDisplay = "CENTER",
+                    layoutX = 23.0,
+                    layoutY = 570.0,
+                    mnemonicParsing = false,
+                    onAction = "#create",
+                    style = "-fx-background-color: #00aaff;",
+                    text = "Create",
+                    textFill = "#fafafa",
+                },
+                children = {
+                    {
+                        type = "Cursor",
+                        properties = {
+                            fx = { constant = "HAND" }
+                        }
+                    }
+                }
+            },
+            {
+                type = "TextField",
+                id = "searchField",
+                properties = {
+                    layoutX = 335.0,
+                    layoutY = 51.0,
+                    prefHeight = 25.0,
+                    prefWidth = 265.0,
+                    promptText = "Product Name",
+                }
+            },
+            {
+                type = "Button",
+                properties = {
+                    contentDisplay = "CENTER",
+                    layoutX = 614.0,
+                    layoutY = 51.0,
+                    mnemonicParsing = false,
+                    onAction = "#search",
+                    style = "-fx-background-color: #00aaff;",
+                    text = "Search",
+                    textFill = "#fafafa",
+                },
+                children = {
+                    {
+                        type = "Cursor",
+                        properties = {
+                            fx = { constant = "HAND" }
+                        }
+                    }
+                }
+            },
+            {
+                type = "Label",
+                id = "errorMessage",
+                properties = {
+                    layoutX = 99.0,
+                    layoutY = 643.0,
+                    text = "An error occurred!",
+                    textFill = "RED",
+                    visible = false,
+                },
+                children = {
+                    {
+                        type = "Font",
+                        properties = {
+                            name = "Verdana",
+                            size = 18.0,
+                        }
+                    },
+                    {
+                        type = "Insets",
+                    }
+                }
+            },
+            {
+                type = "Label",
+                id = "nameErrorMessage",
+                properties = {
+                    layoutX = 134.0,
+                    layoutY = 212.0,
+                    text = "Product Name can't be blank",
+                    textFill = "RED",
+                    visible = false,
+                },
+                children = {
+                    {
+                        type = "Font",
+                        properties = {
+                            name = "Verdana",
+                            size = 12.0,
+                        }
+                    },
+                    {
+                        type = "Insets",
+                    }
+                }
+            },
+            {
+                type = "Label",
+                id = "listPriceValueErrorMessage",
+                properties = {
+                    layoutX = 137.0,
+                    layoutY = 408.0,
+                    text = "List Price can't be negative!",
+                    textFill = "RED",
+                    visible = false,
+                },
+                children = {
+                    {
+                        type = "Font",
+                        properties = {
+                            name = "Verdana",
+                            size = 12.0,
+                        }
+                    },
+                    {
+                        type = "Insets",
+                    }
+                }
+            },
+            {
+                type = "Label",
+                id = "listPriceNullErrorMessage",
+                properties = {
+                    layoutX = 147.0,
+                    layoutY = 408.0,
+                    text = "List Price can't be blank!",
+                    textFill = "RED",
+                    visible = false,
+                },
+                children = {
+                    {
+                        type = "Font",
+                        properties = {
+                            name = "Verdana",
+                            size = 12.0,
+                        }
+                    },
+                    {
+                        type = "Insets",
+                    }
+                }
+            },
+            {
+                type = "Label",
+                properties = {
+                    layoutX = 85.0,
+                    layoutY = 177.0,
+                    text = "Id",
+                }
+            },
+            {
+                type = "TextField",
+                id = "id",
+                properties = {
+                    disable = true,
+                    editable = false,
+                    layoutX = 146.0,
+                    layoutY = 173.0,
+                }
+            },
+            {
+                type = "Button",
+                properties = {
+                    contentDisplay = "CENTER",
+                    layoutX = 215.0,
+                    layoutY = 570.0,
+                    mnemonicParsing = false,
+                    onAction = "#clearTextFields",
+                    prefHeight = 25.0,
+                    prefWidth = 97.0,
+                    style = "-fx-background-color: #4120d3;",
+                    text = "Clear Selection",
+                    textFill = "#fafafa",
+                },
+                children = {
+                    {
+                        type = "Cursor",
+                        properties = {
+                            fx = { constant = "HAND" }
+                        }
+                    }
+                }
+            },
+        }
+    }
+})
